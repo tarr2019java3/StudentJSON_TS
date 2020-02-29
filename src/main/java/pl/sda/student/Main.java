@@ -46,6 +46,5 @@ public class Main {
         jsoNtils.writeList("lista", studentList);
         jsoNtils.readList("lista.json");
 
-
     }
 }
