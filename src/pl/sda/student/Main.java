@@ -1,10 +1,12 @@
 package pl.sda.student;
 
+import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
+import java.sql.ClientInfoStatus;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,20 +34,17 @@ public class Main {
         catch (IOException e)   {
             e.printStackTrace();
         }
+
         List<Student> studentList = new ArrayList<>();
         studentList.add(student1);
         studentList.add(student2);
         studentList.add(student3);
         studentList.add(student4);
         studentList.add(student5);
-        try {
-            objectMapper.writeValue(new File("studentList.json"), studentList);
 
-
-        }
-        catch (IOException e)   {
-            e.printStackTrace();
-        }
+        JSONtils jsoNtils = new JSONtils();
+        jsoNtils.writeList("lista", studentList);
+        jsoNtils.readList("lista.json");
 
 
     }
